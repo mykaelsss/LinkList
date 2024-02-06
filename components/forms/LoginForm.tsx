@@ -79,7 +79,7 @@ export default function LoginForm(
         const formData = new FormData()
         formData.append("email", `${data.email}`)
         formData.append("password", `${data.password}`)
-            await fetch(`http://localhost:3000/auth/login`, {
+            await fetch(`https://linkslisted.vercel.app/auth/login`, {
                 method: "POST",
                 body: formData
             })

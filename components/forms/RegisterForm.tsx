@@ -91,7 +91,7 @@ export default function RegisterForm(
         formData.append("user_name", `${data.user_name}`)
         formData.append("full_name", `${data.full_name}`)
         console.log(formData)
-        await fetch(`http://localhost:3000/auth/sign-up`, {
+        await fetch(`https://linkslisted.vercel.app/auth/sign-up`, {
             method: "post",
             body: formData
         })

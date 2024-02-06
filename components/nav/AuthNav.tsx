@@ -27,7 +27,7 @@ export default function AuthNav() {
         formData.append('email', `${demoEmail}`)
         formData.append('password', `${demoPassword}`)
         try {
-            await fetch(`http://localhost:3000/auth/login`, {
+            await fetch(`https://linkslisted.vercel.app/auth/login`, {
                 method: "POST",
                 body: formData
             })
