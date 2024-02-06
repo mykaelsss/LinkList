@@ -249,7 +249,7 @@ const handleButton: SubmitHandler<ButtonFormData> = async (data, e) => {
                                 </SortableContext>
                             </DndContext>
                         </div>
-                        <div className="grid grid-cols-2 gap-2 border-y-2 lg:grid-cols-5">
+                        <div className="grid grid-cols-2 grid-rows-5 gap-2 border-y-2 lg:grid-cols-5 md:grid-rows-2">
                             {availableButtons.map((b, idx) => (
                                 <button
                                     type="button"
