@@ -162,9 +162,7 @@ export default function AccountLinksForm({user, profile}: {user: User | null, pr
         })
     }
 
-    useEffect(() => {
-        setValue('links', links)
-    }, [user, userId, setValue])
+    setValue('links', links)
 
 async function uploadLinkIcon(e: InputEvent) {
     const fileName = uuidv4()
