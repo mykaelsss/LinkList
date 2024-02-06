@@ -20,14 +20,12 @@ export default function RootLayout({
     <html lang="en" className='min-h-[100vh] min-w-[100vw]'>
       <body className={`${fira.className} min-w-full `} style={{
             backgroundImage: 'linear-gradient(to right top, #3730a3, #0062c9, #0085c5, #00a2a5, #10b981)',
-            // backgroundSize: 'cover',
-            // backgroundRepeat: 'no-repeat',
             backgroundAttachment: 'fixed'
         }}>
         <main>
+          <Toaster position="top-right" reverseOrder={false}/>
           {/* @ts-expect-error Async Server Component */}
           <Header />
-          <Toaster position="top-right" reverseOrder={false}/>
           <div className=''>
             {children}
           </div>
