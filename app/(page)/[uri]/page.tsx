@@ -23,6 +23,8 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                 profile: user_name
             })
         if (error) console.log(error)
+
+        console.log(profile)
     return (
         <div className="" style={ profile?.bgType === 'image' ? {
             backgroundImage: `url(${profile?.backgroundUrl})`,
@@ -40,7 +42,7 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                 <div className='relative w-36 h-36 overflow-hidden rounded-full '>
                     <Image
                         className='object-cover object-center'
-                        src={(profile !== null && profile?.pic) ? profile?.profilePic : '/images/defaultpfp.jpg'}
+                        src={(profile !== null && profile.profilePic) ? profile.profilePic : '/images/defaultpfp.jpg'}
                         alt="profilePic"
                         fill
                         sizes='100%'
