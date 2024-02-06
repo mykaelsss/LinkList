@@ -120,10 +120,12 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                                             link.icon !== '' &&
                                             <div className="relative w-[54px] h-[54px] overflow-hidden rounded-md -left-6 md:w-[74px] md:h-[74px]">
                                                 <Image
+                                                    priority
                                                     src={link?.icon}
                                                     alt={'icon'}
                                                     className="object-cover object-center"
                                                     fill
+                                                    sizes='100%'
                                                 />
                                             </div>
                                         }
@@ -142,6 +144,7 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                             )
                         })}
                     </div>
+                    <Link href={'/'} className="text-lg pt-24 shadow">Create your own LinkList</Link>
                 </div>
         </div>
     )

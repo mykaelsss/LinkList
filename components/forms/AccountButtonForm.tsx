@@ -249,16 +249,16 @@ const handleButton: SubmitHandler<ButtonFormData> = async (data, e) => {
                                 </SortableContext>
                             </DndContext>
                         </div>
-                        <div className="grid grid-cols-2 gap-3 px-2 py-5 flex-wrap border-y-2 lg:grid-cols-5">
+                        <div className="grid grid-cols-2 gap-2 border-y-2 lg:grid-cols-5">
                             {availableButtons.map((b, idx) => (
                                 <button
                                     type="button"
                                     key={idx} className="flex items-center gap-1
                                     p-2 bg-slate-300 text-sm md:text-md sm:gap-2"
                                     onClick={() => addButton(b)}>
-                                    <FontAwesomeIcon icon={b.icon} />
+                                    <FontAwesomeIcon icon={b.icon} className="h-4"/>
                                     <span>{b.label.slice(0,1).toUpperCase() + b.label.slice(1)}</span>
-                                    <FontAwesomeIcon icon={faPlus} className=""/>
+                                    <FontAwesomeIcon icon={faPlus} className="h-4"/>
                                 </button>
                             ))}
                         </div>

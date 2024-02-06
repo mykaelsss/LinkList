@@ -125,7 +125,6 @@ export default function AccountLinksForm({user, profile}: {user: User | null, pr
                     links: links,
                     updated_at: new Date().toISOString(),
                 })
-                console.log("hey", links)
                 if (error) throw error
             } catch (error) {
                 console.log(`[ERROR]: ` + error)
@@ -221,7 +220,7 @@ async function uploadLinkIcon(e: InputEvent) {
                             onClick={addLink}
                             className="text-lg max-w-24 space-x-1"
                         >
-                            <FontAwesomeIcon icon={faPlus} />
+                            <FontAwesomeIcon icon={faPlus} className="h-4 w-4" />
                             <span>Add new</span>
                         </button>
                         <div>
