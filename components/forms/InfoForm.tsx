@@ -89,6 +89,10 @@ export default function InfoForm({ user, profilePicUrl, profile, background }: {
     resolver: zodResolver(FormSchema),
   })
 
+      useEffect(() => {
+        setData()
+        getMedia((user?.id as string), updateMedia)
+      }, [user, userId, setData])
 
       const handleInfo: SubmitHandler<InfoFormData> = async (data, e) => {
         e?.preventDefault()
