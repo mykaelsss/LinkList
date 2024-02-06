@@ -101,7 +101,7 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                         )
                     })}
                     </div>
-                    <div className='max-w-5xl mx-auto grid md:grid-cols-2 gap-8 p-4 px-6'>
+                    <div className='grid md:grid-cols-2 gap-8 p-4 px-6 max-w-5xl w-full'>
                         {profile?.links?.map((link: any, idx: number) => {
                             return (
                                 <Link
@@ -109,7 +109,7 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                                     ping={`/api/click?url=${link?.url}&profile=${user_name}`}
                                     key={idx}
                                     href={link?.url}
-                                    className="p-4 flex rounded-md items-center"
+                                    className="p-2 flex rounded-md items-center"
                                     style={{
                                         backgroundColor: `${link?.bgColor}`,
                                         color: `${link?.textColor}`

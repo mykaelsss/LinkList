@@ -24,7 +24,6 @@ export default function RootLayout({
         }}>
         <main>
           <Toaster position="top-right" reverseOrder={false}/>
-          {/* @ts-expect-error Async Server Component */}
           <Header />
           <div className=''>
             {children}

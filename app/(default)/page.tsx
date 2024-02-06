@@ -15,7 +15,7 @@ export default async function Home() {
                 Share your links, socials, contact info and more on one page.
               </h2>
             </div>
-            <HeroForm userSession={session}/>
+            {/* <HeroForm userSession={session}/> */}
           </section>
           <div className="col-6 auth-widget">
           </div>

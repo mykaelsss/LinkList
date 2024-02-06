@@ -93,7 +93,7 @@ export default function InfoForm({ user, profilePicUrl, profile, background }: {
         setData()
         getMedia((user?.id as string), updateMedia)
         // getProfilePic((user?.id as string), updateProfilePic)
-      }, [user, userId])
+      }, [user, userId, setData])
 
       const handleInfo: SubmitHandler<InfoFormData> = async (data, e) => {
         e?.preventDefault()

@@ -100,24 +100,6 @@ export default function AccountButtonForm({user, profile}: {user: User | null, p
         })
     }
 
-    const getProfile = useCallback(async () => {
-        try {
-
-            const { data, error, status } = await supabaseClient
-            .from('profiles')
-            .select()
-            .eq('id', `${user?.id}`)
-            .single()
-
-            if (error && status !== 406) {
-            throw error
-            }
-            setUserId((user?.id) as string)
-        } catch (error) {
-            toast.error('Error loading user data!')
-        }
-    }, [user, supabaseClient])
-
     const FormSchema: ZodType<ButtonFormData> = z.object ({
         buttons: z.array(z.object({
             key: z.string(),
@@ -184,9 +166,8 @@ const handleButton: SubmitHandler<ButtonFormData> = async (data, e) => {
 
     const availableButtons = allButtons.filter(b1 => !activeButtons.find((b2: any) => b1.key === b2.key));
     useEffect(() => {
-        getProfile()
         setValue('buttons', activeButtons)
-    }, [user, getProfile, userId])
+    }, [user, userId])
 
 
     return (

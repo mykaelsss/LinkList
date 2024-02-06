@@ -4,7 +4,7 @@ import { faLink } from '@fortawesome/free-solid-svg-icons'
 import AuthNav from "./nav/AuthNav";
 
 
-export default async function Header() {
+export default function Header() {
     return (
         <header className="bg-slate-200 border-b py-4 min-w-full">
             <div className="max-w-6xl flex justify-between mx-auto px-6">

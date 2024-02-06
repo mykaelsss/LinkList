@@ -25,6 +25,7 @@ import {
 import { CSS } from '@dnd-kit/utilities'
 import { InputEvent } from "@/types/event";
 import Image from "next/image"
+import { Profile } from '@/app/(app)/account/page';
 
 type UseSortableReturn = Omit<
   ReturnType<typeof useSortable>,
@@ -54,10 +55,10 @@ function SortableItem(props: {
 
 export default function AccountLinksForm({user, profile}: {user: User | null, profile: any}) {
 
-    const [links, setLinks]: any = useState(profile.links || [])
+    const [links, setLinks] = useState(profile?.links || [])
     const modifiers = [restrictToVerticalAxis, restrictToParentElement]
-    const [bgColors, setBgColors] = useState<string>(profile?.links?.bgColor)
-    const [textColors, setTextColors] = useState<string>(profile?.links?.textColor)
+    const [bgColors, setBgColors] = useState<string>(profile?.links?.bgColor || '#262626')
+    const [textColors, setTextColors] = useState<string>(profile?.links?.textColor || '#f8fafc')
     const [userId, setUserId] = useState<string>(user?.id as string)
 
     const addLink = () => {
@@ -84,24 +85,6 @@ export default function AccountLinksForm({user, profile}: {user: User | null, pr
             }
         ])
     }
-
-    const getProfile = useCallback(async () => {
-        try {
-
-            const { data, error, status } = await supabaseClient
-            .from('profiles')
-            .select()
-            .eq('id', `${user?.id}`)
-            .single()
-
-            if (error && status !== 406) {
-            throw error
-            }
-            setUserId((user?.id) as string)
-        } catch (error) {
-            toast.error('Error loading user data!')
-        }
-    }, [user, supabaseClient])
 
     const FormSchema: ZodType<LinkFormData> = z.object ({
         links: z.array(z.object({
@@ -180,9 +163,8 @@ export default function AccountLinksForm({user, profile}: {user: User | null, pr
     }
 
     useEffect(() => {
-        getProfile()
         setValue('links', links)
-    }, [user, getProfile, userId])
+    }, [user, userId, setValue])
 
 async function uploadLinkIcon(e: InputEvent) {
     const fileName = uuidv4()
