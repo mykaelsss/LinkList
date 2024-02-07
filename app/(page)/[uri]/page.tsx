@@ -146,7 +146,7 @@ export default async function UserPage({params}: {params: { uri: string }}) {
                             )
                         })}
                     </div>
-                    <Link href={'/'} className="text-lg pt-24 shadow">Create your own LinkList</Link>
+                    <Link href={'/'} className="text-lg pt-24">Create your own LinkList</Link>
                 </div>
         </div>
     )
